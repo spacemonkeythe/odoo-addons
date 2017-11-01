@@ -1,10 +1,7 @@
-/*
- A Base Object for RKSV - does not depend on any other RKSV Object
- */
-odoo.define('pos_rksv.models', function (require) {
+odoo.define('pos_rksv.models', function(require){
     "use strict";
+
     var models = require('point_of_sale.models');
-    var core = require('web.core');
 
     models.append_domain = function(modelname, domain) {
         var pmodels = models.PosModel.prototype.models;
@@ -32,7 +29,7 @@ odoo.define('pos_rksv.models', function (require) {
     // BMF Fields we do need to communicate directly with the BMF SOAP Service
     models.load_fields("res.company", [ "bmf_tid", "bmf_benid", "bmf_pin", "bmf_hersteller_atu", "bmf_tax_number", "bmf_vat_number"]);
     // Update domain on product.product
-    models.append_domain("product.product", [['rksv_tax_mapping_correct','=',true]]);
+    // models.append_domain("product.product", [['rksv_tax_mapping_correct','=',true]]);
     // Load Odoo configured signature providers - check if this is still needed !
     models.load_models({
         model: 'signature.provider',
